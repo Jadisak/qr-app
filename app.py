@@ -33,6 +33,7 @@ def main():
         if image_file is not None:
             img = load_image(image_file)
             st.image(img)
+            
         # Text Input
         st.caption("Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia voluptas tempora molestiae possimus laboriosam consequuntur voluptate ipsam eligendi quidem itaque accusantium ullam magni, odit eos magnam similique sint quaerat distinctio. Commodi non quae tenetur, explicabo cum libero doloribus asperiores? Quo ipsa quia illo maxime ipsum laboriosam voluptates omnis facere")
 
