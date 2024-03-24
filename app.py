@@ -22,8 +22,13 @@ def load_image(img):
 
 # Application
 def main():
-    menu = ["Home", "DecodeQR", "About"]
+    # st.sidebar(
+    #     st.subheader('E-Ticket'),
+    #     st.image('image_folder/coverApp.png') 
+    # )
+    
 
+    menu = ["Home", "DecodeQR", "About"]
     choice = st.sidebar.selectbox("เลือกรายการ",menu)
 
     if choice == "Home":
@@ -66,12 +71,9 @@ def main():
                 st.write(raw_text)
 
     else:
-        st.subheader("About")
-        st.caption("Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia voluptas tempora molestiae possimus laboriosam consequuntur voluptate ipsam eligendi quidem itaque accusantium ullam magni, odit eos magnam similique sint quaerat distinctio. Commodi non quae tenetur, explicabo cum libero doloribus asperiores? Quo ipsa quia illo maxime ipsum laboriosam voluptates omnis facere")
-        # st.image("https://drive.google.com/file/d/1ozvb8unPKquo80q_bTm3XWCt9QF4iOwj/view?usp=drive_link")
-        # img = load_image("https://drive.google.com/file/d/1ozvb8unPKquo80q_bTm3XWCt9QF4iOwj/view?usp=drive_link")
-        st.image(img)
+        st.image('image_folder/coverApp.png', caption='Register & Ticket App')
+        st.subheader('E-Ticket')
+        st.subheader('ระบบการจ่ายบัตร E-Ticket โดย Lica Club', divider='rainbow')
         
-
 if __name__ == '__main__':
     main()
