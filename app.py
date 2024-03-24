@@ -3,7 +3,7 @@ import streamlit as st
 import numpy as np
 import os
 import time
-timestr = time.strftime("%Y%M%D - %H%M%S")
+timestr = time.strftime("%Y%M%D-%H%M")
 
 
 # For QR Code
@@ -26,7 +26,7 @@ def load_image(img):
 def main():
     menu = ["Home", "DecodeQR", "About"]
 
-    choice = st.sidebar.selectbox("Menu",menu)
+    choice = st.sidebar.selectbox("เลือกรายการ",menu)
 
     if choice == "Home":
         st.subheader("Home")
@@ -50,8 +50,8 @@ def main():
                 img = qr.make_image(fill_color='black',back_color='white')
 
                 #fillname
-                img_filename = 'generate_image_{}.png'.format(timestr)
-                path_for_images = os.path.join('qr_finish', img_filename)
+                img_filename = 'qr_img{}.png'.format(timestr)
+                path_for_images = os.path.join('qr_img', img_filename)
                 img.save(path_for_images)
 
             with col2:
