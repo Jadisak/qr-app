@@ -33,7 +33,6 @@ def main():
         if image_file is not None:
             img = load_image(image_file)
             st.image(img)
-            
         # Text Input
         st.caption("Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia voluptas tempora molestiae possimus laboriosam consequuntur voluptate ipsam eligendi quidem itaque accusantium ullam magni, odit eos magnam similique sint quaerat distinctio. Commodi non quae tenetur, explicabo cum libero doloribus asperiores? Quo ipsa quia illo maxime ipsum laboriosam voluptates omnis facere")
 
@@ -69,6 +68,10 @@ def main():
     else:
         st.subheader("About")
         st.caption("Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia voluptas tempora molestiae possimus laboriosam consequuntur voluptate ipsam eligendi quidem itaque accusantium ullam magni, odit eos magnam similique sint quaerat distinctio. Commodi non quae tenetur, explicabo cum libero doloribus asperiores? Quo ipsa quia illo maxime ipsum laboriosam voluptates omnis facere")
+        # st.image("https://drive.google.com/file/d/1ozvb8unPKquo80q_bTm3XWCt9QF4iOwj/view?usp=drive_link")
+        # img = load_image("https://drive.google.com/file/d/1ozvb8unPKquo80q_bTm3XWCt9QF4iOwj/view?usp=drive_link")
+        st.image(img)
+        
 
 if __name__ == '__main__':
     main()
