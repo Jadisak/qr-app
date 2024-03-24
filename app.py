@@ -12,15 +12,13 @@ import qrcode
 qr = qrcode.QRCode(version=1,
     error_correction=qrcode.constants.ERROR_CORRECT_L,
     box_size=10,
-    border=14,
-    )
+    border=14)
 
 from PIL import Image
 # Function to Load Image
 def load_image(img):
     im = Image.open(img)
     return im
-
 
 # Application
 def main():
@@ -30,13 +28,19 @@ def main():
 
     if choice == "Home":
         st.subheader("Home")
+        image_file = st.file_uploader("ส่งภาพ",type=['jpg','png','jpeg'])
+
+        if image_file is not None:
+            img = load_image(image_file)
+            st.image(img)
         # Text Input
+        st.caption("Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia voluptas tempora molestiae possimus laboriosam consequuntur voluptate ipsam eligendi quidem itaque accusantium ullam magni, odit eos magnam similique sint quaerat distinctio. Commodi non quae tenetur, explicabo cum libero doloribus asperiores? Quo ipsa quia illo maxime ipsum laboriosam voluptates omnis facere")
 
     elif choice == "DecodeQR":
-        st.subheader("Decode QR")
+        st.subheader("สร้าง QR Code")
         with st.form(key='myqr_form'):
-            raw_text = st.text_area("กรอกข้อมูล")
-            submit_button = st.form_submit_button("สร้าง QR Code")
+            raw_text = st.text_area("กรอกข้อมูล..ที่นี่")
+            submit_button = st.form_submit_button("คลิกสร้าง QR Code")
 
         # Layout
         if submit_button:
@@ -49,18 +53,21 @@ def main():
                 qr.make(fit=True)
                 img = qr.make_image(fill_color='black',back_color='white')
 
-                #fillname
-                img_filename = 'qr_img{}.png'.format(timestr)
-                path_for_images = os.path.join('qr_img', img_filename)
-                img.save(path_for_images)
+                # fillname
+                img_filename = 'image_folder{}.png'.format(timestr)
+                img_folder = os.path.join('image_folder', img_filename)
+                img.save(img_folder)
+
+                final_img = load_image(img_folder)
+                st.image(final_img)
 
             with col2:
                 st.info("ข้อมูลต้นฉบับ")
                 st.write(raw_text)
 
-
     else:
         st.subheader("About")
+        st.caption("Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia voluptas tempora molestiae possimus laboriosam consequuntur voluptate ipsam eligendi quidem itaque accusantium ullam magni, odit eos magnam similique sint quaerat distinctio. Commodi non quae tenetur, explicabo cum libero doloribus asperiores? Quo ipsa quia illo maxime ipsum laboriosam voluptates omnis facere")
 
 if __name__ == '__main__':
     main()
